@@ -29,8 +29,6 @@ public class festivalHelper {
     } catch (Exception e) {
         e.printStackTrace();
     }
-    return filmList;
-        }
-    }
-    
+    return festivalList;
+        }    
 }
