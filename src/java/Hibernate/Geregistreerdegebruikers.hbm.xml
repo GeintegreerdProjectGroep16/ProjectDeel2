@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-apr-2013 22:03:31 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hibernate.Geregistreerdegebruikers" table="geregistreerdegebruikers" catalog="groep16_festivals">
+        <id name="gebrId" type="java.lang.Integer">
+            <column name="gebr_id" />
+            <generator class="identity" />
+        </id>
+        <property name="gebrNaam" type="string">
+            <column name="gebr_naam" length="50" not-null="true" />
+        </property>
+        <property name="gebrAdres" type="string">
+            <column name="gebr_adres" length="100" not-null="true" />
+        </property>
+        <property name="gebrGebDat" type="date">
+            <column name="gebr_gebDat" length="10" not-null="true" />
+        </property>
+        <property name="gebrPass" type="string">
+            <column name="gebr_pass" length="50" not-null="true" />
+        </property>
+        <set name="ticketses" inverse="true">
+            <key>
+                <column name="gebr_id" not-null="true" />
+            </key>
+            <one-to-many class="Hibernate.Tickets" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -6,5 +6,16 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/groep16_festivals</property>
     <property name="hibernate.connection.username">root</property>
+    <mapping resource="Hibernate/Festivals.hbm.xml"/>
+    <mapping resource="Hibernate/Tickettypes.hbm.xml"/>
+    <mapping resource="Hibernate/Tickettypesperfestival.hbm.xml"/>
+    <mapping resource="Hibernate/Facpercamp.hbm.xml"/>
+    <mapping resource="Hibernate/Faciliteiten.hbm.xml"/>
+    <mapping resource="Hibernate/Geregistreerdegebruikers.hbm.xml"/>
+    <mapping resource="Hibernate/Bands.hbm.xml"/>
+    <mapping resource="Hibernate/Tickets.hbm.xml"/>
+    <mapping resource="Hibernate/Podia.hbm.xml"/>
+    <mapping resource="Hibernate/Campings.hbm.xml"/>
+    <mapping resource="Hibernate/Bandsperfestival.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

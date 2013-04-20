@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-apr-2013 22:03:31 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hibernate.Tickettypes" table="tickettypes" catalog="groep16_festivals">
+        <id name="typId" type="java.lang.Integer">
+            <column name="typ_id" />
+            <generator class="identity" />
+        </id>
+        <property name="typOmschr" type="string">
+            <column name="typ_omschr" length="50" not-null="true" />
+        </property>
+        <property name="typPrijs" type="big_decimal">
+            <column name="typ_prijs" precision="5" />
+        </property>
+        <set name="ticketses" inverse="true">
+            <key>
+                <column name="typ_id" not-null="true" />
+            </key>
+            <one-to-many class="Hibernate.Tickets" />
+        </set>
+        <set name="tickettypesperfestivals" inverse="true">
+            <key>
+                <column name="typ_id" not-null="true" />
+            </key>
+            <one-to-many class="Hibernate.Tickettypesperfestival" />
+        </set>
+    </class>
+</hibernate-mapping>
