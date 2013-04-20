@@ -24,11 +24,39 @@ public class festivalHelper {
         List<Festivals> festivalList = null;
         try{
             org.hibernate.Transaction tx = session.beginTransaction();
-            Query q = session.createQuery ("from festivals as festival where festival.fest_Id between '"+startID+"' and '"+endID+"'");
+            Query q = session.createQuery ("from Festivals as festival where festival.festId between '"+startID+"' and '"+endID+"'");
             festivalList = (List<Festivals>) q.list();
     } catch (Exception e) {
         e.printStackTrace();
     }
     return festivalList;
-        }    
+        }
+    
+    public List getBandsByID(int festId){
+        List<Bands> bandList = null;
+        try {
+            org.hibernate.Transaction tx = session.beginTransaction();
+            Query q = session.createQuery ("from Bands as band where band.bandId in (select bandsperfestival.bands.bandId from Bandsperfestival as bandsperfestival where bandsperfestival.festivals.festId='" + festId + "')");
+            bandList = (List<Bands>) q.list();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return bandList;
+    }
+    
+    public List getTicketsByID(int festId){
+        List<Tickettypes> ticketList = null;
+        try {
+            org.hibernate.Transaction tx = session.beginTransaction();
+            Query q = session.createQuery("from Tickettypes as tickets where tickets.typId in (select tickettypesperfestival.tickettypes.typId from Tickettypesperfestival as tickettypesperfestival where tickettypesperfestival.festivals.festId='" + festId + "')");
+            ticketList = (List<Tickettypes>) q.list();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return ticketList;
+    }
 }
