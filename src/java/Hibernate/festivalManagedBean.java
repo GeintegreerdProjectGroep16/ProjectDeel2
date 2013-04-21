@@ -112,7 +112,7 @@ public class festivalManagedBean {
         for (int i = 0; i < bands.size(); i++) {
             Bands band = (Bands) bands.get(i);
             totalLineUp.append(band.getBandNaam());
-            totalLineUp.append(" :");
+            totalLineUp.append(" : ");
             totalLineUp.append(band.getBandSoortMuziek());
             totalLineUp.append("; ");
         }
