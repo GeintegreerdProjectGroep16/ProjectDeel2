@@ -105,7 +105,7 @@ public class festivalManagedBean {
         recreateModel();
         return "index";
     }
-    
+    // alle bands van een bepaald festival ophalen en achter elkaar zetten
      public String getBands() {
         List bands = helper.getBandsByID(current.getFestId());
         StringBuilder totalLineUp = new StringBuilder();
@@ -118,7 +118,7 @@ public class festivalManagedBean {
         }
         return totalLineUp.toString();
     }
-     
+    // alle tickets en hun prijs van een bepaald festival ophalen en achter elkaar zetten
     public String getTicketypes() {
         List tickets = helper.getTicketsByID(current.getFestId());
         StringBuilder totalTickets = new StringBuilder();

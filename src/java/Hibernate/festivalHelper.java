@@ -19,7 +19,7 @@ public class festivalHelper {
     public festivalHelper(){
         this.session = hibernateUtil.getSessionFactory().getCurrentSession();
     }
-    
+    // festivalgegevens ophalen
     public List getFestivalNames(int startID, int endID){
         List<Festivals> festivalList = null;
         try{
@@ -31,7 +31,7 @@ public class festivalHelper {
     }
     return festivalList;
         }
-    
+    // bands per festival ophalen
     public List getBandsByID(int festId){
         List<Bands> bandList = null;
         try {
@@ -45,7 +45,7 @@ public class festivalHelper {
 
         return bandList;
     }
-    
+    // tickets per festival ophalen
     public List getTicketsByID(int festId){
         List<Tickettypes> ticketList = null;
         try {
